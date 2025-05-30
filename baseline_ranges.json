@@ -1,0 +1,374 @@
+{
+    "heart_rate": {
+        "infant": {
+            "M": {
+                "min": 100,
+                "max": 160,
+                "severity_threshold": 20.0
+            },
+            "F": {
+                "min": 100,
+                "max": 160,
+                "severity_threshold": 20.0
+            }
+        },
+        "child": {
+            "M": {
+                "min": 70,
+                "max": 120,
+                "severity_threshold": 20.0
+            },
+            "F": {
+                "min": 70,
+                "max": 120,
+                "severity_threshold": 20.0
+            }
+        },
+        "adolescent": {
+            "M": {
+                "min": 60,
+                "max": 100,
+                "severity_threshold": 20.0
+            },
+            "F": {
+                "min": 60,
+                "max": 100,
+                "severity_threshold": 20.0
+            }
+        },
+        "adult": {
+            "M": {
+                "min": 60,
+                "max": 100,
+                "severity_threshold": 20.0
+            },
+            "F": {
+                "min": 60,
+                "max": 100,
+                "severity_threshold": 20.0
+            }
+        },
+        "elderly": {
+            "M": {
+                "min": 60,
+                "max": 100,
+                "severity_threshold": 20.0
+            },
+            "F": {
+                "min": 60,
+                "max": 100,
+                "severity_threshold": 20.0
+            }
+        }
+    },
+    "temperature": {
+        "infant": {
+            "M": {
+                "min": 36.4,
+                "max": 37.6,
+                "severity_threshold": 10.0
+            },
+            "F": {
+                "min": 36.4,
+                "max": 37.6,
+                "severity_threshold": 10.0
+            }
+        },
+        "child": {
+            "M": {
+                "min": 36.4,
+                "max": 37.6,
+                "severity_threshold": 10.0
+            },
+            "F": {
+                "min": 36.4,
+                "max": 37.6,
+                "severity_threshold": 10.0
+            }
+        },
+        "adolescent": {
+            "M": {
+                "min": 36.5,
+                "max": 37.5,
+                "severity_threshold": 10.0
+            },
+            "F": {
+                "min": 36.5,
+                "max": 37.5,
+                "severity_threshold": 10.0
+            }
+        },
+        "adult": {
+            "M": {
+                "min": 36.5,
+                "max": 37.5,
+                "severity_threshold": 10.0
+            },
+            "F": {
+                "min": 36.5,
+                "max": 37.5,
+                "severity_threshold": 10.0
+            }
+        },
+        "elderly": {
+            "M": {
+                "min": 36.5,
+                "max": 37.5,
+                "severity_threshold": 10.0
+            },
+            "F": {
+                "min": 36.5,
+                "max": 37.5,
+                "severity_threshold": 10.0
+            }
+        }
+    },
+    "spo2": {
+        "infant": {
+            "M": {
+                "min": 95,
+                "max": 100,
+                "severity_threshold": 5.0
+            },
+            "F": {
+                "min": 95,
+                "max": 100,
+                "severity_threshold": 5.0
+            }
+        },
+        "child": {
+            "M": {
+                "min": 95,
+                "max": 100,
+                "severity_threshold": 5.0
+            },
+            "F": {
+                "min": 95,
+                "max": 100,
+                "severity_threshold": 5.0
+            }
+        },
+        "adolescent": {
+            "M": {
+                "min": 95,
+                "max": 100,
+                "severity_threshold": 5.0
+            },
+            "F": {
+                "min": 95,
+                "max": 100,
+                "severity_threshold": 5.0
+            }
+        },
+        "adult": {
+            "M": {
+                "min": 95,
+                "max": 100,
+                "severity_threshold": 5.0
+            },
+            "F": {
+                "min": 95,
+                "max": 100,
+                "severity_threshold": 5.0
+            }
+        },
+        "elderly": {
+            "M": {
+                "min": 95,
+                "max": 100,
+                "severity_threshold": 5.0
+            },
+            "F": {
+                "min": 95,
+                "max": 100,
+                "severity_threshold": 5.0
+            }
+        }
+    },
+    "respiratory_rate": {
+        "infant": {
+            "M": {
+                "min": 30,
+                "max": 60,
+                "severity_threshold": 20.0
+            },
+            "F": {
+                "min": 30,
+                "max": 60,
+                "severity_threshold": 20.0
+            }
+        },
+        "child": {
+            "M": {
+                "min": 20,
+                "max": 30,
+                "severity_threshold": 20.0
+            },
+            "F": {
+                "min": 20,
+                "max": 30,
+                "severity_threshold": 20.0
+            }
+        },
+        "adolescent": {
+            "M": {
+                "min": 12,
+                "max": 20,
+                "severity_threshold": 20.0
+            },
+            "F": {
+                "min": 12,
+                "max": 20,
+                "severity_threshold": 20.0
+            }
+        },
+        "adult": {
+            "M": {
+                "min": 12,
+                "max": 20,
+                "severity_threshold": 20.0
+            },
+            "F": {
+                "min": 12,
+                "max": 20,
+                "severity_threshold": 20.0
+            }
+        },
+        "elderly": {
+            "M": {
+                "min": 12,
+                "max": 20,
+                "severity_threshold": 20.0
+            },
+            "F": {
+                "min": 12,
+                "max": 20,
+                "severity_threshold": 20.0
+            }
+        }
+    },
+    "systolic_bp": {
+        "infant": {
+            "M": {
+                "min": 70,
+                "max": 100,
+                "severity_threshold": 20.0
+            },
+            "F": {
+                "min": 70,
+                "max": 100,
+                "severity_threshold": 20.0
+            }
+        },
+        "child": {
+            "M": {
+                "min": 80,
+                "max": 110,
+                "severity_threshold": 20.0
+            },
+            "F": {
+                "min": 80,
+                "max": 110,
+                "severity_threshold": 20.0
+            }
+        },
+        "adolescent": {
+            "M": {
+                "min": 90,
+                "max": 120,
+                "severity_threshold": 20.0
+            },
+            "F": {
+                "min": 90,
+                "max": 120,
+                "severity_threshold": 20.0
+            }
+        },
+        "adult": {
+            "M": {
+                "min": 90,
+                "max": 120,
+                "severity_threshold": 20.0
+            },
+            "F": {
+                "min": 90,
+                "max": 120,
+                "severity_threshold": 20.0
+            }
+        },
+        "elderly": {
+            "M": {
+                "min": 90,
+                "max": 140,
+                "severity_threshold": 20.0
+            },
+            "F": {
+                "min": 90,
+                "max": 140,
+                "severity_threshold": 20.0
+            }
+        }
+    },
+    "diastolic_bp": {
+        "infant": {
+            "M": {
+                "min": 50,
+                "max": 70,
+                "severity_threshold": 20.0
+            },
+            "F": {
+                "min": 50,
+                "max": 70,
+                "severity_threshold": 20.0
+            }
+        },
+        "child": {
+            "M": {
+                "min": 50,
+                "max": 80,
+                "severity_threshold": 20.0
+            },
+            "F": {
+                "min": 50,
+                "max": 80,
+                "severity_threshold": 20.0
+            }
+        },
+        "adolescent": {
+            "M": {
+                "min": 60,
+                "max": 80,
+                "severity_threshold": 20.0
+            },
+            "F": {
+                "min": 60,
+                "max": 80,
+                "severity_threshold": 20.0
+            }
+        },
+        "adult": {
+            "M": {
+                "min": 60,
+                "max": 80,
+                "severity_threshold": 20.0
+            },
+            "F": {
+                "min": 60,
+                "max": 80,
+                "severity_threshold": 20.0
+            }
+        },
+        "elderly": {
+            "M": {
+                "min": 60,
+                "max": 90,
+                "severity_threshold": 20.0
+            },
+            "F": {
+                "min": 60,
+                "max": 90,
+                "severity_threshold": 20.0
+            }
+        }
+    }
+} 
