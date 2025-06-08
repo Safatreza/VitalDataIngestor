@@ -1,0 +1,30 @@
+{
+    "workspace": {
+        "name": "VitalDataIngestor",
+        "description": "A comprehensive system for monitoring and analyzing patient vital signs",
+        "python": {
+            "version": "3.8+",
+            "typeChecking": true,
+            "linting": {
+                "enabled": true,
+                "pylint": true,
+                "mypy": true
+            }
+        },
+        "formatting": {
+            "python": {
+                "formatter": "black",
+                "lineLength": 88
+            }
+        },
+        "search": {
+            "exclude": [
+                "**/__pycache__",
+                "**/.git",
+                "**/venv",
+                "**/.env",
+                "**/*.pyc"
+            ]
+        }
+    }
+} 

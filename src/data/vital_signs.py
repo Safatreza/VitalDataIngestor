@@ -2,47 +2,12 @@ from dataclasses import dataclass
 from datetime import datetime
 from typing import Dict, List, Optional, Tuple
 import os
+import logging
 
 from src.data.data_sources import DataSource
 from src.analysis.anomaly_detector import AnomalyDetector, AnomalyPrediction
 from src.analysis.baseline_comparator import BaselineComparator, Alert
-
-@dataclass
-class VitalSigns:
-    """Data class to hold vital signs data with validation."""
-    heart_rate: float
-    temperature: float
-    spo2: float
-    respiratory_rate: float
-    systolic_bp: float
-    diastolic_bp: float
-    timestamp: datetime
-
-    def __post_init__(self):
-        """Validate vital signs data after initialization."""
-        if not (40 <= self.heart_rate <= 200):
-            raise ValueError(f"Heart rate {self.heart_rate} is outside normal range (40-200)")
-        if not (35 <= self.temperature <= 42):
-            raise ValueError(f"Temperature {self.temperature} is outside normal range (35-42)")
-        if not (70 <= self.spo2 <= 100):
-            raise ValueError(f"SpO2 {self.spo2} is outside normal range (70-100)")
-        if not (8 <= self.respiratory_rate <= 40):
-            raise ValueError(f"Respiratory rate {self.respiratory_rate} is outside normal range (8-40)")
-        if not (70 <= self.systolic_bp <= 200):
-            raise ValueError(f"Systolic BP {self.systolic_bp} is outside normal range (70-200)")
-        if not (40 <= self.diastolic_bp <= 120):
-            raise ValueError(f"Diastolic BP {self.diastolic_bp} is outside normal range (40-120)")
-    
-    def to_dict(self) -> Dict[str, float]:
-        """Convert vital signs to dictionary format."""
-        return {
-            'heart_rate': self.heart_rate,
-            'temperature': self.temperature,
-            'spo2': self.spo2,
-            'respiratory_rate': self.respiratory_rate,
-            'systolic_bp': self.systolic_bp,
-            'diastolic_bp': self.diastolic_bp
-        }
+from src.data.models import VitalSigns
 
 class VitalDataIngestor:
     """Main class for ingesting vital signs data from multiple sources."""
@@ -58,11 +23,11 @@ class VitalDataIngestor:
         try:
             self.baseline_comparator.load_baselines_from_json("baseline_ranges.json")
         except FileNotFoundError:
-            print("Warning: baseline_ranges.json not found. Baseline comparison will not be available.")
+            logging.warning("Warning: baseline_ranges.json not found. Baseline comparison will not be available.")
         
         # Train anomaly detector if model doesn't exist
         if not os.path.exists(model_path):
-            print("Training anomaly detection model...")
+            logging.info("Training anomaly detection model...")
             self.anomaly_detector.train_model(n_samples=1000)
 
     def add_data_source(self, source: DataSource) -> None:
@@ -96,12 +61,12 @@ class VitalDataIngestor:
                             vital_signs.timestamp
                         )
                     except Exception as e:
-                        print(f"Error in anomaly detection: {e}")
+                        logging.error(f"Error in anomaly detection: {e}")
                         prediction = None
                     
                     results.append((vital_signs, alerts, prediction))
             except Exception as e:
-                print(f"Error ingesting data from source: {e}")
+                logging.error(f"Error ingesting data from source: {e}")
         
         return results
 
@@ -135,7 +100,7 @@ class VitalDataIngestor:
                 vital_signs.timestamp
             )
         except Exception as e:
-            print(f"Error in anomaly detection: {e}")
+            logging.error(f"Error in anomaly detection: {e}")
             prediction = None
         
         return alerts, prediction 

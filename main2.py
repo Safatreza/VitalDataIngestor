@@ -1,4 +1,4 @@
-print("main.py script started")
+print("main2.py script started")
 
 """
 Main entry point for the Vital Signs Monitoring System.
@@ -13,13 +13,11 @@ This module provides the command-line interface for various operations:
 
 import argparse
 import sys
-import time
 from datetime import datetime, timedelta
 from typing import Optional, List, Dict, Any, NoReturn
 import pandas as pd
 import logging
 
-from src.data.data_sources import DataSource  # Import DataSource directly
 from src.data.vital_data_ingestor import (
     VitalDataIngestor,
     CSVDataSource,
@@ -164,15 +162,14 @@ def run_monitor_mode(args: argparse.Namespace) -> None:
         while True:
             logging.debug("Monitor loop running...")
             vital_signs = ingestor.ingest_data()
+            logging.debug(f"ingestor.ingest_data() returned: {vital_signs}")
             if vital_signs:
                 print_vital_signs(vital_signs)
                 analysis = ingestor.analyze_vital_signs(vital_signs)
-                if analysis:
-                    print_alerts(analysis.get('alerts', []))
-                    print_anomaly(analysis.get('anomaly_prediction'))
+                print_alerts(analysis.get('alerts', []))
+                print_anomaly(analysis.get('anomaly_prediction'))
             else:
                 logging.info("No vital signs data ingested this cycle.")
-                time.sleep(1)  # Add a small delay to prevent CPU spinning
     
     except KeyboardInterrupt:
         print("\nMonitoring stopped.")

@@ -5,7 +5,8 @@ import plotly.graph_objects as go
 from datetime import datetime, timedelta
 from typing import List, Dict, Optional
 
-from src.data.vital_signs import VitalDataIngestor, VitalSigns
+from src.data.models import VitalSigns
+from src.data.vital_signs import VitalDataIngestor
 from src.analysis.baseline_comparator import Alert
 from src.analysis.anomaly_detector import AnomalyPrediction
 

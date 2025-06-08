@@ -13,8 +13,8 @@ class DataSource(ABC):
     """Abstract base class for data sources."""
     
     @abstractmethod
-    def get_vital_signs(self) -> List[VitalSigns]:
-        """Get vital signs from the data source."""
+    def get_data(self) -> List[VitalSigns]:
+        """Get data from the data source."""
         pass
 
 class CSVDataSource(DataSource):
@@ -23,7 +23,7 @@ class CSVDataSource(DataSource):
     def __init__(self, file_path: str):
         self.file_path = file_path
         
-    def get_vital_signs(self) -> List[VitalSigns]:
+    def get_data(self) -> List[VitalSigns]:
         vital_signs = []
         with open(self.file_path, 'r') as f:
             reader = csv.DictReader(f)
@@ -53,7 +53,7 @@ class APIDataSource(DataSource):
         self.api_url = api_url
         self.api_key = api_key
         
-    def get_vital_signs(self) -> List[VitalSigns]:
+    def get_data(self) -> List[VitalSigns]:
         headers = {}
         if self.api_key:
             headers['Authorization'] = f'Bearer {self.api_key}'
@@ -112,7 +112,7 @@ class SimulatedStreamDataSource(DataSource):
             **vital_signs
         )
         
-    def get_vital_signs(self) -> List[VitalSigns]:
+    def get_data(self) -> List[VitalSigns]:
         """Get a single reading from the simulated stream."""
         time.sleep(self.interval)
         pattern = 'abnormal' if random.random() < self.abnormal_probability else 'normal'

@@ -7,6 +7,7 @@ import joblib
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, confusion_matrix
+import logging
 
 @dataclass
 class AnomalyPrediction:
@@ -31,7 +32,7 @@ class AnomalyDetector:
             self.model = joblib.load(model_path)
             self.scaler = joblib.load(f"{model_path}.scaler")
         except FileNotFoundError:
-            print(f"No existing model found at {model_path}")
+            logging.error(f"No existing model found at {model_path}")
     
     def _generate_mock_data(self, n_samples: int = 1000) -> pd.DataFrame:
         """Generate mock training data with normal and abnormal patterns."""
@@ -115,10 +116,10 @@ class AnomalyDetector:
         
         # Evaluate the model
         y_pred = self.model.predict(X_scaled)
-        print("\nModel Evaluation:")
-        print(classification_report(y, y_pred))
-        print("\nConfusion Matrix:")
-        print(confusion_matrix(y, y_pred))
+        logging.info("\nModel Evaluation:")
+        logging.info(classification_report(y, y_pred))
+        logging.info("\nConfusion Matrix:")
+        logging.info(confusion_matrix(y, y_pred))
         
         # Save the model and scaler
         joblib.dump(self.model, self.model_path)

@@ -4,6 +4,7 @@ from typing import Dict, List, Optional, Union
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
+import logging
 
 class AlertSeverity(Enum):
     """Enumeration for alert severity levels."""
@@ -41,7 +42,7 @@ class BaselineComparator:
             with open(file_path, 'r') as f:
                 self.baseline_ranges = json.load(f)
         except FileNotFoundError:
-            print(f"Warning: {file_path} not found.")
+            logging.warning(f"Warning: {file_path} not found.")
             self.baseline_ranges = {}
     
     def _calculate_age_group(self, date_of_birth: datetime) -> str:
